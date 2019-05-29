@@ -1,0 +1,27 @@
+{
+  "name": "Help is the Heart",
+  "version": "1.0",
+  "description": "A consistent help interface for any site",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "options_page": "options.html",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/question-mark16.png",
+      "32": "images/question-mark32.png",
+      "48": "images/question-mark48.png",
+      "128": "images/question-mark128.png"
+    }
+  },
+  "icons": {
+    "16": "images/question-mark16.png",
+    "32": "images/question-mark32.png",
+    "48": "images/question-mark48.png",
+    "128": "images/question-mark128.png"
+  },
+  "manifest_version": 2
+}

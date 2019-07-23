@@ -3,25 +3,35 @@
 // found in the LICENSE file.
 
 'use strict';
-let feedback = document.getElementById('feedback');
-let input = document.getElementsByTagName('input');
-
-let changeColor = document.getElementById('changeColor');
-
-chrome.storage.sync.get('color', function(data) {
-  changeColor.style.backgroundColor = data.color;
-  changeColor.setAttribute('value', data.color);
+const feedback = $('#feedback');
+const search = $('#search').on('change', function() {
+  const term = search.attr('value');
+  $.get(`https://www.linkedin.com/help/api/hip/v1/search/linkedin/jobs?query=${term}`);
+  //Re prese
 });
 
-feedback.onclick = function(element) {
-  alert(input.value);
-}
+const walkthrough = $('#walkthrough');
+const form = $('#form').submit(function() {
+  return false;
+});
+let ff = [];
+chrome.storage.sync.get('feedback', function(data) {
+  ff = data;
+});
 
-changeColor.onclick = function(element) {
-  let color = element.target.value;
+
+https://www.linkedin.com/help/api/hip/v1/show/linkedin/jobs
+
+feedback.click(function(element) {
+   ff.push({ title: 'Test', text: prompt("Describe your issues and ideas", search.attr('value')) });
+   chrome.storage.sync.set('feedback',feedback);
+});
+
+walkthrough.click(function(element) {
+  let color = walkthrough.attr('value');
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.executeScript(
         tabs[0].id,
-        {code: 'document.body.style.backgroundColor = "' + color + '";'});
+        {code: 'document.body.style.backgroundColor = "black";'});
   });
-};
+})

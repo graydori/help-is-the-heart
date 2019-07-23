@@ -4,18 +4,27 @@
 
 'use strict';
 
-let page = document.getElementById('buttonDiv');
-const kButtonColors = ['#3aa757', '#e8453c', '#f9bb2d', '#4688f1'];
-function constructOptions(kButtonColors) {
-  for (let item of kButtonColors) {
-    let button = document.createElement('button');
-    button.style.backgroundColor = item;
-    button.addEventListener('click', function() {
-      chrome.storage.sync.set({color: item}, function() {
-        console.log('color is ' + item);
-      })
+const page = $('#feedback');
+
+function constructOptions(data) {
+  for (let item of data) {
+    let card = $(`<div class="card" style="width: 18rem;">
+      <img src="${data.img}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${data.title}</h5>
+        <p class="card-text">${data.text}</p>
+        <a href="#" class="btn btn-secondary">Discard</a>
+        <a href="#" class="btn btn-primary">Send Feedback</a>
+      </div>
+    </div>
+    `);
+    card.on('click', 'btn-primary', function() {
+      alert('Re submit');
+    }).on('click', 'btn-secondary', function() {
+      card.remove();
     });
-    page.appendChild(button);
+    page.append(button);
   }
 }
-constructOptions(kButtonColors);
+
+chrome.storage.sync.get('feedback', constructOptions );

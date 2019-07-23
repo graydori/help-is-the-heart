@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      ul, li {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      #changeColor {
-        height: 30px;
-        width: 30px;
-        outline: none;
-      }
-    </style>
+    <title>Send Feedback</title>
+    <style>body { width: 400px; }</style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <input type="text" placeholder="How are you feeling?" />
-    <ul>
-      <li><a href="#">Test</a></li>
-      <li><a href="#">Test</a></li>
-      <li><a href="#">Test</a></li>
-    </ul>
-    <button type="button" id="feedback">Send Feedback</button>
-    <button id="changeColor"></button>
+
+      <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" id="search" type="search" placeholder="We'd love to help" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </nav>
+      <div class="container-fluid">
+      <ul class="list-group">
+        <a href="#" class="list-group-item list-group-item-action">Test</a>
+        <a href="#" class="list-group-item list-group-item-action">Test</a>
+        <a href="#" class="list-group-item list-group-item-action">Test</a>
+      </ul>
+      <button type="button" class="btn btn-outline-primary" id="walkthrough">Search Jobs</button>
+      <button type="button" class="btn btn-primary" id="feedback">Send Feedback</button>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>

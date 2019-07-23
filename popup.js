@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 
 'use strict';
+let feedback = document.getElementById('feedback');
+let input = document.getElementsByTagName('input');
 
 let changeColor = document.getElementById('changeColor');
 
@@ -10,6 +12,10 @@ chrome.storage.sync.get('color', function(data) {
   changeColor.style.backgroundColor = data.color;
   changeColor.setAttribute('value', data.color);
 });
+
+feedback.onclick = function(element) {
+  alert(input.value);
+}
 
 changeColor.onclick = function(element) {
   let color = element.target.value;

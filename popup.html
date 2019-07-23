@@ -2,7 +2,12 @@
 <html>
   <head>
     <style>
-      button {
+      ul, li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      #changeColor {
         height: 30px;
         width: 30px;
         outline: none;
@@ -10,6 +15,13 @@
     </style>
   </head>
   <body>
+    <input type="text" placeholder="How are you feeling?" />
+    <ul>
+      <li><a href="#">Test</a></li>
+      <li><a href="#">Test</a></li>
+      <li><a href="#">Test</a></li>
+    </ul>
+    <button type="button" id="feedback">Send Feedback</button>
     <button id="changeColor"></button>
     <script src="popup.js"></script>
   </body>

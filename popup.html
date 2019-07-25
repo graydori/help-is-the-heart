@@ -2,27 +2,62 @@
 <html>
   <head>
     <title>Send Feedback</title>
-    <style>body { width: 400px; }</style>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      body {
+        width: 580px;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-
-      <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" id="search" type="search" placeholder="We'd love to help" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </nav>
-      <div class="container-fluid">
-      <ul class="list-group">
-        <a href="#" class="list-group-item list-group-item-action">Test</a>
-        <a href="#" class="list-group-item list-group-item-action">Test</a>
-        <a href="#" class="list-group-item list-group-item-action">Test</a>
-      </ul>
-      <button type="button" class="btn btn-outline-primary" id="walkthrough">Search Jobs</button>
-      <button type="button" class="btn btn-primary" id="feedback">Send Feedback</button>
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline d-flex">
+        <input
+          class="form-control mr-sm-2 flex-grow-1"
+          id="search"
+          type="search"
+          placeholder="We'd love to help"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Find Help
+        </button>
+      </form>
+    </nav>
+    <div id="list" class="list-group list-group-flush">
+      <div class="list-group-item list-group-item-action">
+          <div class="spinner-border" role="status">
+              <span class="sr-only">Finding some help...</span>
+            </div>
+      </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <div class="container-fluid pt-4">
+      <h5>Walkthrough <small>Live walkthrough some exciting feautres</small> </h5>
+      <button type="button" class="btn btn-outline-primary" id="walkthrough">
+        Search Jobs
+      </button>
+      <button type="button" class="btn btn-outline-primary" id="walkthrough">
+        Filter Jobs
+      </button>
+      <button type="button" class="btn btn-outline-primary" id="walkthrough">
+        Follow Companies
+      </button>
+    </div>
+    <footer class="container-fluid pt-2 pb-2">
+      <a class="float-right" href="http://www.linkedin.com/help">
+        Go to the Help Center
+      </a>
+      <button type="button" class="btn btn-primary btn-sm" id="feedback">
+        Send Feedback
+      </button>
+    </footer>
+
+    <script src="jquery-3.4.1.min.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>

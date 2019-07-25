@@ -2,4 +2,4 @@
 A tool to find help on any site
 
 Download the Chrome Extension @
-TODO Publish Here
+https://chrome.google.com/webstore/detail/help-is-the-heart/fmcionpincponaaghobkaifclebknfjn

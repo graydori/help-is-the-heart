@@ -2,7 +2,7 @@
   "name": "Help is the Heart",
   "version": "1.0",
   "description": "A consistent help interface for any site",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": ["activeTab", "declarativeContent", "storage", "notifications"],
   "options_page": "options.html",
   "background": {
     "scripts": ["background.js"],
@@ -17,6 +17,17 @@
       "128": "images/question-mark128.png"
     }
   },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "css": ["drop-theme-arrows.min.css"],
+      "js": ["jquery-3.4.1.min.js",
+        "tether.min.js",
+        "drop.min.js",
+        "tooltip.min.js",
+        "walkthroughs.js"]
+    }
+  ],
   "icons": {
     "16": "images/question-mark16.png",
     "32": "images/question-mark32.png",

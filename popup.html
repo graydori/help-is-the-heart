@@ -30,26 +30,22 @@
       </form>
     </nav>
     <div id="list" class="list-group list-group-flush">
-      <div class="list-group-item list-group-item-action">
-          <div class="spinner-border" role="status">
-              <span class="sr-only">Finding some help...</span>
-            </div>
-      </div>
+      <div class="list-group-item list-group-item-action"><div class="spinner-border" role="status"><span class="sr-only">Finding some help...</span></div></div>
     </div>
     <div class="container-fluid pt-4">
       <h5>Walkthrough <small>Live walkthrough some exciting feautres</small> </h5>
-      <button type="button" class="btn btn-outline-primary" id="walkthrough">
+      <button type="button" class="btn btn-outline-primary" data-walkthrough="search-jobs">
         Search Jobs
       </button>
-      <button type="button" class="btn btn-outline-primary" id="walkthrough">
+      <button type="button" class="btn btn-outline-primary"  data-walkthrough="filter-jobs">
         Filter Jobs
       </button>
-      <button type="button" class="btn btn-outline-primary" id="walkthrough">
-        Follow Companies
+      <button type="button" class="btn btn-outline-primary" data-walkthrough="job-alerts">
+        Follow New Jobs
       </button>
     </div>
     <footer class="container-fluid pt-2 pb-2">
-      <a class="float-right" href="http://www.linkedin.com/help">
+      <a class="float-right" href="http://www.linkedin.com/help" target="_blank">
         Go to the Help Center
       </a>
       <button type="button" class="btn btn-primary btn-sm" id="feedback">

@@ -10,24 +10,25 @@ const search = $("#search").keyup(function() {
     $.get(
       `https://www.linkedin.com/help/api/hip/v1/search/linkedin/jobs?query=${term}`,
       function(data) {
-        list.html(""); //clear the list
-        $.each(data.contentList, function(i, d) {
-          list.append(
-            `<a target="_blank" href="${domain}${
-              d.url
-            }" class="list-group-item list-group-item-action">${d.title}</a>`
-          );
-        });
+        if (data.contentList.length) {
+          list.html(""); //clear the list
+          $.each(data.contentList, function(i, d) {
+            list.append(
+              `<a target="_blank" href="${domain}${
+                d.url
+              }" class="list-group-item list-group-item-action">${d.title}</a>`
+            );
+          });
+        }
       }
     );
   }
 });
 
-const walkthrough = $("#walkthrough");
 const form = $("form").submit(function() {
-  debugger;
   return false;
 });
+
 let ff = [];
 chrome.storage.sync.get("feedback", function({ feedback }) {
   debugger;
@@ -56,15 +57,20 @@ const feedback = $("#feedback").click(function(element) {
     text: prompt("Describe your issues and ideas", search.val())
   });
   chrome.storage.sync.set({ feedback: ff }, function() {
+    //notification
+    chrome.notifications.create({
+      title: "Send Feedback?",
+      message: "Your feedback was saved. Would you like to send it now?"
+    });
     console.log("saved");
   });
 });
 
-walkthrough.click(function(element) {
-  let color = walkthrough.attr("value");
+const walkthrough = $("[data-walkthrough]").click(function() {
+  let walk = $(this).attr("data-walkthrough");
   chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
     chrome.tabs.executeScript(tabs[0].id, {
-      code: 'document.body.style.backgroundColor = "black";'
+      code: `walkthrough("${walk}");`,
     });
   });
 });
